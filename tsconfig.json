@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
+    "strict": true,
     "allowJs": true,
     "declaration": true,
-    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "module": "ESNext",
@@ -10,12 +10,13 @@
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": ".",
+    "outDir": "dist",
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "strict": true,
-    "target": "ESNext"
+    "lib": ["ES2022", "DOM"],
+    "target": "ES2016",
+    "esModuleInterop": true
   },
-  "exclude": ["node_modules", "src/**/*.test.js", "src/__snapshots__/*.snap"],
+  "exclude": ["node_modules", "src/**/*.spec.ts"],
   "include": ["src"]
 }

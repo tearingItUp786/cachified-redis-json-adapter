@@ -2,8 +2,11 @@
   "name": "cachified-redis-json-adapter",
   "version": "0.0.0-development",
   "description": "A redis-json adapter for usage with @epic-web/cachified",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "prepare": "rm -rf dist && npm run build",
+    "clean": "rm -rf dist",
     "build": "tsc",
     "format": "prettier --write",
     "lint": "eslint",
