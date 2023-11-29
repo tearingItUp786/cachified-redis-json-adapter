@@ -15,7 +15,7 @@ exists for that purpose.
 ## Install
 
 ```bash
-npm install cachified-redis-json-adpter
+npm install cachified-redis-json-adapter
 ```
 
 ## Usage
