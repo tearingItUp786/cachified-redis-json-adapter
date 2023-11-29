@@ -14,13 +14,13 @@ exists for that purpose.
 
 ## Install
 
-```
+```bash
 npm install cachified-redis-json-adpter
 ```
 
 ## Usage
 
-```
+```ts
 import {redisJsonCacheAdapter} from 'cachified-redis-json-adapter'
 
 // create an instance of a redis client to pass to our adapter
@@ -29,12 +29,11 @@ let redisClient = createRedisClient()
 const redisCache = myRedisAdapter(redisClient)
 
 // usage with cachified
-  return cachified({
-    key: `yourCacheKey`,
-    // use the cache we defined above
-    cache: redisCache,
-    getFreshValue: async () => {} // some function to get fresh values
-    // other cachified optoins
-  })
-
+return cachified({
+  key: `yourCacheKey`,
+  // use the cache we defined above
+  cache: redisCache,
+  getFreshValue: async () => {}, // some function to get fresh values
+  // other cachified optoins
+})
 ```
