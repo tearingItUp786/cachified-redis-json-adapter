@@ -40,4 +40,5 @@ return cachified({
 
 ## Contributing
 
-[x] Fill in
+- [x] Fill in
+- [x] Add in other stuff
