@@ -2,6 +2,9 @@ import {redisJsonCacheAdapter} from './'
 
 describe('it works with redisonjson like cache', () => {
   const mockRedisJsonCache = {
+    set: jest.fn(),
+    get: jest.fn(),
+    del: jest.fn(),
     json: {
       set: jest.fn(),
       get: jest.fn(),
