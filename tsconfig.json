@@ -6,8 +6,7 @@
     "esModuleInterop": true,
     "outDir": "dist",
     "moduleResolution": "node",
-    "declaration": true,
-    "emitDeclarationOnly": true
+    "declaration": true
   },
   "exclude": ["node_modules", "src/**/*.spec.ts"],
   "include": ["src/*"]
