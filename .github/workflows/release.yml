@@ -30,40 +30,63 @@ jobs:
             coverage: true
     runs-on: ubuntu-latest
     steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
-
-      - name: ⎔ Setup node
-        uses: actions/setup-node@v4
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
         with:
-          node-version: ${{ matrix.version }}
+          access_token: ${{ github.token }}
 
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
-        env:
-          NODE_ENV: development
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.1.1
 
-      - name: 🃏 Run jest
-        run: npm test -- --coverage=${{ matrix.coverage }}
+      - name: Install Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
-      - uses: codecov/codecov-action@v3
-        if: ${{ matrix.coverage }}
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Linting
+        run: pnpm run lint
+
+      - name: Type checking
+        run: pnpm run type-check
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Tests
+        run: pnpm run test
 
   publish:
     name: ⚙️ Release
     needs: [test]
     runs-on: ubuntu-latest
     steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
-
-      - name: ⎔ Setup node
-        uses: actions/setup-node@v4
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
         with:
-          node-version: 20
+          access_token: ${{ github.token }}
 
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.1.1
+
+      - name: Install Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm run build
 
       - name: ⚙️ Semantic Release
         run: npx semantic-release
