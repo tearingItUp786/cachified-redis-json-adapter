@@ -1,15 +1,23 @@
-import type {Cache} from '@epic-web/cachified'
+import type {Cache, CacheEntry} from '@epic-web/cachified'
 import {totalTtl} from '@epic-web/cachified'
 
-export interface RedisJsonLikeCache {
+interface RedisLikeCache {
   name?: string
+  set(
+    key: string,
+    value: string,
+    options?: {
+      EXAT: number
+    },
+  ): Promise<string | null>
+  get(key: string): Promise<string | null>
+  del(key: string): Promise<unknown>
+}
+
+export interface RedisJsonLikeCache extends RedisLikeCache {
   json: {
-    set(
-      key: string,
-      path: string,
-      value: Record<string, any>,
-    ): Promise<string | null>
-    get(key: string): Promise<string | null>
+    set(key: string, path: string, value: Record<string, any>): Promise<unknown>
+    get(key: string): Promise<unknown>
     del(key: string): Promise<unknown>
   }
   expireAt(key: string, timestamp: number): Promise<unknown>
@@ -47,7 +55,7 @@ export function redisJsonCacheAdapter(
       if (value == null) {
         return null
       }
-      return value as any
+      return value as CacheEntry<unknown>
     },
   }
 }
