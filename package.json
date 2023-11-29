@@ -10,7 +10,7 @@
     "test": "npx jest",
     "preinstall": "npx only-allow pnpm",
     "semantic-release": "semantic-release",
-    "typecheck": "tsc --noEmit"
+    "type-check": "tsc --noEmit"
   },
   "exports": "./index.js",
   "type": "module",
