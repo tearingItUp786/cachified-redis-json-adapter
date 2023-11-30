@@ -1,0 +1,28 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "tearingItUp786",
+      "name": "Taranveer (Taran) Bains",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16584942?v=4",
+      "profile": "https://twitter.com/tearingitup786",
+      "contributions": [
+        "code",
+        "test",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "cachified-redis-json-adapter",
+  "projectOwner": "tearingItUp786"
+}
