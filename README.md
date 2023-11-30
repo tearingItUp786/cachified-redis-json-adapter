@@ -38,7 +38,7 @@ const redisCache = redisJsonCacheAdapter(redisClient)
 
 // usage with cachified
 return cachified({
-  key: `yourCacheKey`,
+  key: `some-cache-key`,
   // use the cache we defined above
   cache: redisCache,
   getFreshValue: async () => {}, // some function to get fresh values
