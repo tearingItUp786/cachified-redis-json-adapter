@@ -1,6 +1,9 @@
 import type {Cache, CacheEntry} from '@epic-web/cachified'
 import {totalTtl} from '@epic-web/cachified'
 
+// This is actually imported from @epic-web/cachified
+// but it will most likely be moved out of the package
+// and into some other adapter/package
 interface RedisLikeCache {
   name?: string
   set(
