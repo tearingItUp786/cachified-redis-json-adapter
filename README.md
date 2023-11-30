@@ -23,6 +23,8 @@ npm install cachified-redis-json-adapter
 
 ## Usage
 
+**Meant to be used with `@epicweb-dev/cachified`**
+
 ```ts
 import {redisJsonCacheAdapter} from 'cachified-redis-json-adapter'
 
