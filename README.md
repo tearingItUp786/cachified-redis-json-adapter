@@ -1,6 +1,9 @@
 # cachified-redis-json-adapter
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 An adapter meant to be used with
@@ -31,7 +34,7 @@ import {redisJsonCacheAdapter} from 'cachified-redis-json-adapter'
 // create an instance of a redis client to pass to our adapter
 // you will need to define this yourself.
 let redisClient = createRedisClient()
-const redisCache = myRedisAdapter(redisClient)
+const redisCache = redisJsonCacheAdapter(redisClient)
 
 // usage with cachified
 return cachified({
@@ -46,6 +49,7 @@ return cachified({
 ## Contributors ✨
 
 Thanks goes to these wonderful people
+
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
@@ -61,6 +65,7 @@ Thanks goes to these wonderful people
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
 ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 This project follows the
